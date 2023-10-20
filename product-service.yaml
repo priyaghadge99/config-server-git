@@ -7,9 +7,9 @@ server:
     generate-ddl: true
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: root
-    url: jdbc:mysql://localhost:3306/productdb
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:root}
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/productdb    
    
 
   health:
@@ -54,7 +54,7 @@ eureka:
     fetch-registry: true
     register-with-eureka: true 
     service-url: 
-     defaultZone: http://localhost:8761/eureka 
+     defaultZone: ${DEFAULT_ZONE:http://localhost:8761/eureka}
   instance:
     hostname: localhost
     prefer-ip-address: true
